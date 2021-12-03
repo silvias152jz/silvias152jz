@@ -1,0 +1,108 @@
+test # 1 suspension 
+Spring Rate for s15 
+
+ignore the steering input, it's for lego steering, it's not for keyboard and mouse 
+disclamer: I don't own this code nor made this. I modified this code for specific use such as lego steering 
+this input is not compatible for g29 logitec or thrustmaster because chassis A tune is not compatible for steering its for controller,
+this code is for controller that has lego steering set
+if someone put this to the Chassis Tune, its gonna be mess for the steering input. 
+
+
+--[[Suspension]]
+Tune.SuspensionEnabled	= true		-- Enables suspension, true or false
+
+--Front Strut
+Tune.FSusStiffness	= 657.1296625262546   	-- Spring Force
+Tune.FSusDamping	= 67		-- Spring Damping
+Tune.FAntiRoll 		= 55		-- Anti-Roll
+Tune.FSusLength		= 10.55			-- Base spring height (in studs)
+Tune.FPreCompress	= .3		-- Adds to base spring height (in studs)
+Tune.FExtensionLim	= .20		-- Max Extension Travel (in studs)
+Tune.FCompressLim	= .20		-- Max Compression Travel (in studs)
+
+--Tune.FGyroDampening = 00		-- Front Suspension Gyro Dampening
+
+--Rear Strut
+Tune.RSusStiffness	= 559.97414787069 	-- Spring Force
+Tune.RSusDamping	= 78		-- Spring Damping
+Tune.RAntiRoll 		= 55		-- Anti-Roll
+Tune.RSusLength		= 10.55			-- Base spring height (in studs)
+Tune.RPreCompress	= .3		-- Adds to base spring height (in studs)
+Tune.RExtensionLim	= .20		-- Max Extension Travel (in studs)
+Tune.RCompressLim	= .20		-- Max Compression Travel (in studs)
+
+--Tune.RGyroDampening = 00		-- Rear Suspension Gyro Dampening
+
+--Old Suspension Settings, applies if there is no SuspensionGeometry for the respective wheel
+Tune.FSusAngle		= 95		-- Spring Angle (degrees from horizontal)
+Tune.FWsBoneLen		= 5			-- Wishbone Length
+Tune.FWsBoneAngle	= 0			-- Wishbone angle (degrees from horizontal)
+Tune.FAnchorOffset	= {			-- Suspension anchor point offset (relative to center of wheel)
+	--[[Lateral]]		-.4		,	-- positive = outward
+	--[[Vertical]]		-.5		,	-- positive = upward
+	--[[Forward]]		0		}	-- positive = forward
+Tune.FSpringOffset	= {			-- Suspension anchor point offset (relative to ABOVE anchor offset) (Avxnturador)
+	--[[Lateral]]		0		,	-- positive = outward 
+	--[[Vertical]]		0		,	-- positive = upward
+	--[[Forward]]		0		}	-- positive = forward
+
+Tune.RSusAngle		= 88		-- Spring Angle (degrees from horizontal)
+Tune.RWsBoneLen		= 6			-- Wishbone Length
+Tune.RWsBoneAngle	= 0			-- Wishbone angle (degrees from horizontal)
+Tune.RAnchorOffset	= {			-- Suspension anchor point offset (relative to center of wheel)
+	--[[Lateral]]		-.4		,	-- positive = outward
+	--[[Vertical]]		-.5		,	-- positive = upward
+	--[[Forward]]		0		}	-- positive = forward
+Tune.RSpringOffset	= {			-- Suspension anchor point offset (relative to ABOVE anchor offset) (Avxnturador)
+	--[[Lateral]]		0		,	-- positive = outward 
+	--[[Vertical]]		0		,	-- positive = upward
+	--[[Forward]]		0		}	-- positive = forward
+
+--Aesthetics	
+Tune.SusVisible		= false			-- Suspension Visible
+Tune.SusRadius		= .3			-- Spring Coil Radius
+Tune.SusThickness	= .1			-- Spring Coil Thickness
+Tune.SusColor		= "yellow"	-- Spring Color [BrickColor]
+Tune.SusCoilCount	= 8				-- Spring Coil Count
+
+--[[Wheel Stabilizer Gyro]]
+--Tune.FGyroDamp		= 000		-- Front Wheel Non-Axial Dampening
+--Tune.RGyroDamp		= 000		-- Rear Wheel Non-Axial Dampening
+
+--[[Steering]]
+Tune.SteeringType	= 'New'		-- New = Precise steering calculations based on real life steering assembly (LuaInt)
+-- Old = Previous steering calculations
+-- New Options
+Tune.SteerRatio		= 16/1		-- Steering ratio of your steering rack, google it for your car
+Tune.LockToLock		= 4.8		-- Number of turns of the steering wheel lock to lock, google it for your car
+Tune.Ackerman		= 1.1		-- If you don't know what it is don't touch it, ranges from .7 to 1.2
+
+-- Old Options
+Tune.SteerInner		= 43		-- Inner wheel steering angle (in degrees)
+Tune.SteerOuter		= 40		-- Outer wheel steering angle (in degrees)
+
+-- General Steering
+Tune.SteerSpeed		= 900000000000000000000000000000000000000		-- Steering increment per tick (in degrees)
+Tune.ReturnSpeed	= 900000000000000000000000000000000000000		-- Steering increment per tick (in degrees)
+Tune.SteerDecay		= 0		-- Speed of gradient cutoff (in SPS)
+Tune.MinSteer		= 0		-- Minimum steering at max steer decay (in percent)
+Tune.MSteerExp		= 1			-- Mouse steering exponential degree
+Tune.MinSpeed		= 0		-- Minimum speed before steering decays (in SPS)
+Tune.CSRate			= 0		-- How quickly full countersteering is reached based on sliding angle, 0 disables it 2.5
+
+-- Steer Gyro Tuning
+Tune.SteerD			= 10000		-- Steering Dampening
+Tune.SteerMaxTorque	= 1000000		-- Steering Force
+Tune.SteerP			= 100000		-- Steering Aggressiveness
+
+--Four Wheel Steering (LuaInt)
+Tune.FWSteer			= 'None'	-- Static, Speed, Both, or None
+Tune.RSteerOuter		= 10		-- Outer rear wheel steering angle (in degrees)
+Tune.RSteerInner		= 10		-- Inner rear wheel steering angle (in degrees)
+Tune.RSteerSpeed		= 60		-- Speed at which 4WS fully activates (Speed), deactivates (Static), or transition begins (Both) (SPS)
+Tune.RSteerDecay		= 330		-- Speed of gradient cutoff (in SPS)
+
+-- Rear Steer Gyro Tuning
+Tune.RSteerD			= 150		-- Steering Dampening
+Tune.RSteerMaxTorque	= 8500		-- Steering Force
+Tune.RSteerP			= 800		-- Steering Aggressiveness
